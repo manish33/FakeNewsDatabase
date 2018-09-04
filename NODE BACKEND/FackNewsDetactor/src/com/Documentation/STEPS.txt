@@ -1,0 +1,6 @@
+1) created new folder called fakenewsdetactor
+2) run command npm init to make this project node project
+3) install mongodb using npm install mongodb --save
+4) import mongo client from mongodb. mongoclient.connect(url,(err,client)) , db=client.db() , db.collevtion().insertone()
+we can see it using robo mongo. result.ops will return record. 
+5) 

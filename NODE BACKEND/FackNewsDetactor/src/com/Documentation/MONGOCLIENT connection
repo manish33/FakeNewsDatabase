@@ -1,0 +1,41 @@
+const {MongoClient: mongoClient, ObjectID} = require('mongodb');
+
+mongoClient.connect('mongodb://localhost:27017/FAKENEWSAPP',(err,client)=>{
+    if(err){
+        console.log('enable to connect to the server');
+    }
+    else{
+        const db = client.db('FAKENEWSAPP')
+        console.log("connected");
+        // db.collection('users').insertOne({
+        //     UserName:'manish',
+        //     password: 'manish#93',
+        //     firstname: 'Manish',
+        //     lastname:'sakariya',
+        //     email: 'manish.3.rajput@gmail.com',
+        //     dateofbirth: '03-03-1993',
+        //     state: 'Gujarat',
+        //     District: 'Rajkot'
+        // },(err, result)=>{
+        //     if(err) {console.log('failed to inser') }
+        //     else{
+        //       console.log(result.ops[0]._id.getTimestamp());
+        //     }
+        // })
+
+        // db.collection('users').find({firstname: 'Manish'}).toArray().then((document,err)=>{
+        //     console.log(document);
+        // })
+        db.collection('users').findOneAndUpdate({firstname: 'Manish'},{
+            $set:{
+             firstname: 'Rohit'
+            }
+        } , {returnOriginal: false})
+
+
+        
+    }
+
+    client.close();
+})
+
